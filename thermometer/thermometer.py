@@ -46,7 +46,10 @@ class Thermometer:
         session.commit()
 
         self.id = thermometer.id
-        self.temp_timer = RepeatedTimer(1, self.read_temperature)
+        self.read_temperature_timer = RepeatedTimer(1, self.read_temperature)
+
+    def stop_reading(self):
+        self.read_temperature_timer.stop()
 
     def read_temperature(self):
         # Randomly generate a temperature

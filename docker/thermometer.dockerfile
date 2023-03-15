@@ -4,7 +4,6 @@ ENV FLASK_APP=../thermometer/app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 ENV FLASK_RUN_PORT=3001
 ENV FLASK_ENV=development
-ENV FLASK_DEBUG=1
 
 WORKDIR ../thermometer
 
