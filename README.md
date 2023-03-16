@@ -8,12 +8,13 @@ The application follows a 3-tier architecture and leverages Docker Compose to ru
 
 
 ## How to run
-1. In the terminal run this command:
+1. Create a webhook on http://webhook.site and copy the URL into the `WEBHOOK_URL` env variable inside the server folder
+2. In the terminal run this command:
 ```commandline
  docker compose up --build "thermometer" --build "server" --build "db" --attach server --attach thermometer
 ```
 
-2. Then once everything is running use the `POST /create` endpoint on the server to create a thermometer
+3. Then once everything is running use the `POST /create` endpoint on the server to create a thermometer
 
 ---
 # Server
@@ -32,6 +33,7 @@ The `Thermometer` class simulates a thermometer that can read temperatures (curr
 To create a new thermometer, send a POST request to the root endpoint (/) with a JSON payload containing the desired temperature thresholds and notification settings:
 
 ```json
+// POST '/'
 {
    "freezing_threshold": 0.0,
     "boiling_threshold": 10.0,
